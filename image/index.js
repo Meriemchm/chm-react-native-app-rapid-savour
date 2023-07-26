@@ -1,0 +1,1 @@
+export const Coffee = require('./coffee.png'); 

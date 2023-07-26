@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "909ecd84-36d1-461c-854a-1680b8342305"
+      }
+    },
+    "owner": "chmmeriem"
   }
 }
