@@ -12,15 +12,18 @@ const Featuredrow = ({ title }) => {
   useEffect(() => {
     client
       .fetch(
-        `*[_type == "restaurants"] {
-      ...,
-    }`
+        ` *[_type == "restaurants"] {
+          ...,
+          dishes[]->{
+            ...,
+          }    
+      }`
       )
       .then((data) => {
         setRestaurants(data);
       });
   }, []);
-  console.log(restaurants)
+
   return (
     <View>
       <View style={Tw`flex flex-row justify-between mt-4 px-4`}>
@@ -33,19 +36,22 @@ const Featuredrow = ({ title }) => {
         style={Tw`px-4 py-4 `}
         showsHorizontalScrollIndicator={false}
       >
-        {restaurants?.map(({ name,image, address, rating, _id }) => {
-          return (
-            <RestaurantCard
-              key={_id}
-              id={_id}
-              imgUrl={image}
-              title={name}
-              address={address}
-              rating={rating}
-            />
-          );
-        })}
-        
+        {restaurants?.map(
+          ({ name, image, address, rating, _id, description, dishes }) => {
+            return (
+              <RestaurantCard
+                key={_id}
+                id={_id}
+                imgUrl={image}
+                title={name}
+                address={address}
+                rating={rating}
+                description={description}
+                dishes={dishes}
+              />
+            );
+          }
+        )}
       </ScrollView>
     </View>
   );

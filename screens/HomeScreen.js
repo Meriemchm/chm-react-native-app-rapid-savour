@@ -21,7 +21,7 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView style={Tw`bg-gray-100`}>
+    <SafeAreaView style={Tw`bg-gray-100 h-full`}>
       <View style={Tw`flex flex-row justify-between  p-4`}>
         <View style={Tw`flex-1`}>
           <Text style={Tw`text-second text-center text-xl font-bold`}>
